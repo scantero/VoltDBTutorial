@@ -18,9 +18,15 @@ CREATE TABLE towns (
     population INTEGER
  );
 
+ CREATE TABLE states (
+   abbreviation VARCHAR(20),
+   state_num TINYINT,
+   name VARCHAR(20),
+   PRIMARY KEY (state_num)
+ );
+
  CREATE INDEX people_idx ON people (state_num, county_num);
 
 
 PARTITION TABLE towns ON COLUMN state_num;
 PARTITION TABLE people ON COLUMN state_num;
-
