@@ -40,7 +40,13 @@ PARTITION TABLE people ON COLUMN state_num;
  $voltdb start
 
 #Tutoral 4
-Creamos la tabla states y vamos a modificar las tablas anteriores porque les sobran columnas.
+Creamos la tabla states. 
+
+Cargamos los datos a la tabla states:
+
+$ csvloader --skip 1 -f data/states.csv states
+
+Vamos a modificar las tablas anteriores porque les sobran columnas:
 
 $ ALTER TABLE towns DROP COLUMN state;
 $ ALTER TABLE people DROP COLUMN state;
