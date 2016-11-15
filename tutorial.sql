@@ -23,3 +23,6 @@ CREATE TABLE towns (
  insert into towns values ('Billerica','Middlesex','MA');
  insert into towns values ('Buffalo','Erie','NY');
  insert into towns values ('Bay View','Erie','OH');
+
+PARTITION TABLE towns ON COLUMN state_num;
+PARTITION TABLE people ON COLUMN state_num;
