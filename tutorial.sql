@@ -19,3 +19,8 @@ CREATE TABLE towns (
  );
 
  CREATE INDEX people_idx ON people (state_num, county_num);
+
+
+PARTITION TABLE towns ON COLUMN state_num;
+PARTITION TABLE people ON COLUMN state_num;
+
