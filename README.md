@@ -32,3 +32,9 @@ Partitioned Tables
 
 PARTITION TABLE towns ON COLUMN state_num;
 PARTITION TABLE people ON COLUMN state_num;
+
+#Tutoral 4
+Creamos la tabla states y vamos a modificar las tablas anteriores porque les sobran columnas.
+
+$ ALTER TABLE towns DROP COLUMN state;
+$ ALTER TABLE people DROP COLUMN state;
