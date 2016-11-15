@@ -7,3 +7,7 @@ CREATE TABLE towns (
    elevation INTEGER
 );
 CREATE INDEX town_idx ON towns (state_num, county_num);
+
+insert into towns values ('Billerica','Middlesex','MA');
+insert into towns values ('Buffalo','Erie','NY');
+insert into towns values ('Bay View','Erie','OH');
