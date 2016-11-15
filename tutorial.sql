@@ -19,7 +19,3 @@ CREATE TABLE towns (
  );
 
  CREATE INDEX people_idx ON people (state_num, county_num);
-
- insert into towns values ('Billerica','Middlesex','MA');
- insert into towns values ('Buffalo','Erie','NY');
- insert into towns values ('Bay View','Erie','OH');
