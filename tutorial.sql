@@ -61,4 +61,6 @@ AS
      AND people.state_num=states.state_num
      ORDER BY population ASC;
 
-
+CREATE PROCEDURE 
+  PARTITION PROCEDURE ON TABLE people COLUMN state_num
+  FROM CLASS UpdatePeople;
