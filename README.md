@@ -119,6 +119,18 @@ How to compile and load the stored procedure LoadAlert:
   · If no, insert the alert using the LoadAlert procedure.
 
 ##Running the LoadWeather Application
+->Simply add the location of the VoltDB client library to the environment variable PYTHONPATH. For example, if VoltDB is installed in your home directory as the folder ~/voltdb, the command to use is:
+
+$ export PYTHONPATH="$HOME/voltdb/lib/python/"
+
+->You will also need weather alerts data to load.
+
+$ python LoadWeather.py < data/alerts.xml 
+
+->Or you can pipe the most recent alerts directly from the NWS web site:
+
+$ curl https://alerts.weather.gov/cap/us.php?x=0 | python LoadWeather.py
+
 
 ##Creating the GetWeather Application
 
