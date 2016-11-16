@@ -102,11 +102,11 @@ $exec leastpopulated 6;
   · LoadAlert — to insert the information into both the nws_alert and local_alert table
 
 How to compile and load the stored procedure LoadAlert:
-	$ javac -cp "$CLASSPATH:/opt/voltdb/voltdb/*"  LoadAlert.java
-	$ jar cvf storedprocs.jar *.class
-	$ sqlcmd
-	1> load classes storedprocs.jar;
-	2> file weather.sql;
+$ javac -cp "$CLASSPATH:/opt/voltdb/voltdb/*"  LoadAlert.java
+$ jar cvf storedprocs.jar *.class
+$ sqlcmd
+  1> load classes storedprocs.jar;
+  2> file weather.sql;
 
 ##Creating the LoadWeather Client Application
 
