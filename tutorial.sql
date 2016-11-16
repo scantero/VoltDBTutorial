@@ -30,3 +30,13 @@ CREATE TABLE towns (
 
 PARTITION TABLE towns ON COLUMN state_num;
 PARTITION TABLE people ON COLUMN state_num;
+
+CREATE PROCEDURE leastpopulated 
+   PARTITION ON TABLE people COLUMN state_num
+AS 
+   SELECT TOP 1 county, abbreviation, population
+     FROM people, states WHERE people.state_num=?
+     AND people.state_num=states.state_num
+     ORDER BY population ASC;
+
+
