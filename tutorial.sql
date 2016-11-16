@@ -52,3 +52,13 @@ CREATE INDEX local_event_idx ON local_event (state_num, county_num);
 CREATE INDEX nws_event_idx ON nws_event (id);
 
 PARTITION TABLE local_event ON COLUMN state_num;
+
+CREATE PROCEDURE leastpopulated 
+   PARTITION ON TABLE people COLUMN state_num
+AS 
+   SELECT TOP 1 county, abbreviation, population
+     FROM people, states WHERE people.state_num=?
+     AND people.state_num=states.state_num
+     ORDER BY population ASC;
+
+
