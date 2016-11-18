@@ -70,8 +70,8 @@ $exec leastpopulated 6;
 
 ##Compiling Java Stored Procedures
 
-1. $ javac -cp "$CLASSPATH:/opt/voltdb/voltdb/*"  UpdatePeople.java
-2. $ jar cvf storedprocs.jar *.class
+1. $ javac -cp "$CLASSPATH:/opt/voltdb/voltdb/\*"  UpdatePeople.java
+2. $ jar cvf storedprocs.jar \*.class
 3. $ sqlcmd 1> load classes storedprocs.jar;
 
 #Tutorial 6
@@ -102,8 +102,8 @@ $exec leastpopulated 6;
   · LoadAlert — to insert the information into both the nws_alert and local_alert table
 
 How to compile and load the stored procedure LoadAlert:
-	$ javac -cp "$CLASSPATH:/opt/voltdb/voltdb/*"  LoadAlert.java
-	$ jar cvf storedprocs.jar *.class
+	$ javac -cp "$CLASSPATH:/opt/voltdb/voltdb/\*"  LoadAlert.java
+	$ jar cvf storedprocs.jar \*.class
 	$ sqlcmd
 	1> load classes storedprocs.jar;
 	2> file weather.sql;
@@ -125,7 +125,7 @@ $ export PYTHONPATH="$HOME/voltdb/lib/python/"
 
 ->You will also need weather alerts data to load.
 
-$ python LoadWeather.py < data/alerts.xml 
+$ python LoadWeather.py < data/alerts.xml
 
 ->Or you can pipe the most recent alerts directly from the NWS web site:
 
