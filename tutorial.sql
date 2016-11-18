@@ -52,13 +52,15 @@ PARTITION TABLE local_event ON COLUMN state_num;
 
 
 
+-- Da problemas error
 
-CREATE PROCEDURE leastpopulated
-  PARTITION PROCEDURE leastpopulated ON TABLE people COLUMN state_num
-  AS SELECT TOP 1 county, abbreviation, population
-    FROM people, states WHERE people.state_num=?
-    AND people.state_num=states.state_num
-    ORDER BY population ASC;
+--CREATE PROCEDURE leastpopulated
+--  PARTITION PROCEDURE leastpopulated ON TABLE people COLUMN state_num
+--AS
+--    SELECT TOP 1 county, abbreviation, population
+--      FROM people, states WHERE people.state_num=?
+--      AND people.state_num=states.state_num
+--      ORDER BY population ASC;
 
 
 CREATE PROCEDURE

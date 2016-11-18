@@ -159,7 +159,7 @@ Añadimos el procedimiento a nuestro archivo tutorial.sql
 Los procedimientos pueden estar almacenados en un archivo java, y se pueden definir en nuestra BD llamando a esa clase java. Lo definiremos así:
 
 CREATE PROCEDURE
-  PARTITION ON TABLE people COLUMN state_num  
+  PARTITION ON TABLE people COLUMN state_num
   FROM CLASS UpdatePeople;
 
 Añadimos el procedimiento a nuestro tutorial.sql
@@ -172,7 +172,7 @@ $voltdb init --force
 $voltdb start
 
 Terminal 2:
-$ javac -cp "$CLASSPATH:/opt/voltdb/voltdb/*"  UpdatePeople.java              **  
+$ javac -cp "$CLASSPATH:/opt/voltdb/voltdb/*"  UpdatePeople.java              **
 $ jar cvf UpdatePeople.jar *.class                                            **
 $ sqlcmd
 1> load classes UpdatePeople.jar;
@@ -181,6 +181,7 @@ $ sqlcmd
 $ csvloader --file people.txt --skip 1 people
 $ csvloader --separator "|"  --skip 1   --file towns.txt  towns
 $ csvloader --skip 1 -f states.csv states
+
 
 #Tutorial 6
 
@@ -240,6 +241,7 @@ $ jar cvf storedprocs.jar *.class                                             **
 $ sqlcmd
 1> load classes storedprocs.jar;
 2> file weather.sql;
+
 
 
 ##Creating the LoadWeather Client Application
