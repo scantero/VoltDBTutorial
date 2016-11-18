@@ -244,32 +244,40 @@ $ sqlcmd
 
 ##Creating the LoadWeather Client Application
 
-  Read and parse the NWS alerts feed.
+Usando el Servicio Meteorológico Nacional de los Estados Unidos que emite alertas que describen condiciones meteorológicas peligrosas. Estas alertas están disponibles en línea en formato XML o en nuestro caso en el archivo alerts.xml.
 
-  For each alert, first check if it already exists in the database using the FindAlert procedure.
+El cliente se encargará de crear nuevas alertas meteorológicas para distintas ubicaciones. Para ello, seguirá los siguientes pasos:
 
-  · If yes, move on.
+1) Lee y parsea el archivo alerts.xml donde se encuentran todos los datos de las alertas ya creadas.
 
-  · If no, insert the alert using the LoadAlert procedure.
+2) Para cada alerta que desee crear, primero comprueba si ya existe o no en la BD, llamando al procedimiento almacenado FindAlert.
+
+3) Si existe, continúa con más alertas.
+
+4) Si no existe, crea una nueva alerta llamando al procedimiento almacenado LoadAlert.
+
+Para hacer todo este proceso, el cliente puede elegir programar en cualquier lenguaje (como python, java, C++, etc.).
+
+En este caso, el cliente usará código python que se encuentra en el archivo LoadWeather.py
 
 ##Running the LoadWeather Application
-->Simply add the location of the VoltDB client library to the environment variable PYTHONPATH. For example, if VoltDB is installed in your home directory as the folder ~/voltdb, the command to use is:
 
+Para ejecutar este archivo en el cliente:
+
+1) Añadimos a la variable de entorno PYTHONPATH la ubicación de las librerias del cliente de VoltDB.
+
+2) Cargamos las alertas de tiempo, bien del archivo alerts.xml o directamente del sitio web NWS.
+
+Abriremos un nuevo terminal que se comportará como nuestro cliente:
+
+Terminal 3: Este terminal será el cliente
 $ export PYTHONPATH="$HOME/voltdb/lib/python/"
+$ python LoadWeather.py < alerts.xml
 
-->You will also need weather alerts data to load.
+En este caso alerts.xml tendrá que estar en la misma ubicación que LoadWeather.py, si no es así, especificaremos la ruta en la que se encuentra el .xml
 
-$ python LoadWeather.py < data/alerts.xml
+O bien,
 
-->Or you can pipe the most recent alerts directly from the NWS web site:
-
+Terminal 3:
+$ export PYTHONPATH="$HOME/voltdb/lib/python/"
 $ curl https://alerts.weather.gov/cap/us.php?x=0 | python LoadWeather.py
-
-
-##Creating the GetWeather Application
-
-##VoltDB in User Applications
-
-##VoltDB in High Performance Applications
-
-##Running the GetWeather Application
